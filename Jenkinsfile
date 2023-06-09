@@ -6,10 +6,14 @@ pipeline {
         }
     }
     stages {
-        stage('Build') {
+        stage('Restore packages') {
             steps {
                 echo "Building dotnet backend.."
                 bat "dotnet restore ${workspace}\\TestBackendAPI\\TestBackendAPI.sln"
+            }
+        }
+        stage('Build') {
+            steps {
                 echo "Building react user interface.."
                 sh '''
                 cd reactclientapp
