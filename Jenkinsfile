@@ -6,7 +6,7 @@ pipeline {
                 echo "Building dotnet backend.."
                 echo "Building react user interface.."
                 sh '''
-                cd reactcientapp
+                cd reactclientapp
                 npm install
                 '''
             }
