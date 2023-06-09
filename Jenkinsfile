@@ -1,21 +1,12 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:lts-bullseye-slim' 
-            args '-p 3000:3000' 
-        }
-    }
+    agent any
     stages {
         stage('Build') {
             steps {
                 echo "Building dotnet backend.."
-                sh '''
-                cd TestBackendAPI
-                '''
-                bat "dotnet restore $TestBackendAPI.sln"
                 echo "Building react user interface.."
                 sh '''
-                cd ../reactcientapp
+                cd reactcientapp
                 npm install
                 '''
             }
